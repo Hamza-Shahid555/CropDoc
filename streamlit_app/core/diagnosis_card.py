@@ -59,17 +59,28 @@ def _render_verification_banner(meta: dict) -> None:
 def render_diagnosis_card(meta: dict) -> None:
     severity = meta.get("severity", "Unknown")
     badge_kind = _SEVERITY_BADGE.get(severity, "info")
+    disagrees = meta.get("agrees_with_model") is False
 
     ui.card_open()
-    st.markdown(
-        f"### {meta.get('disease_name', meta.get('class_name'))} &nbsp; {ui.badge(severity, badge_kind)}",
-        unsafe_allow_html=True,
-    )
-    st.caption(f"Crop: **{meta.get('affected_crop', '—')}**")
 
-    st.progress(min(max(meta.get("confidence", 0) / 100, 0.0), 1.0), text=f"Confidence: {meta.get('confidence', 0):.1f}%")
-
+    # Show the verification verdict FIRST — if it disagrees, the warning must be seen
+    # before the (likely wrong) name/confidence, not read as a contradiction after them.
     _render_verification_banner(meta)
+
+    if disagrees:
+        st.markdown(f"##### 🔬 Vision model's guess (unverified): {meta.get('disease_name', meta.get('class_name'))}")
+        st.caption(
+            f"Crop it guessed: **{meta.get('affected_crop', '—')}** · "
+            f"Model's own confidence in that guess: {meta.get('confidence', 0):.1f}% "
+            "(this is the CNN's certainty in its own answer, not a verified accuracy score)"
+        )
+    else:
+        st.markdown(
+            f"### {meta.get('disease_name', meta.get('class_name'))} &nbsp; {ui.badge(severity, badge_kind)}",
+            unsafe_allow_html=True,
+        )
+        st.caption(f"Crop: **{meta.get('affected_crop', '—')}**")
+        st.progress(min(max(meta.get("confidence", 0) / 100, 0.0), 1.0), text=f"Confidence: {meta.get('confidence', 0):.1f}%")
 
     orig = _b64_to_bytes(meta.get("original_b64"))
     heatmap = _b64_to_bytes(meta.get("heatmap_b64"))
@@ -82,6 +93,14 @@ def render_diagnosis_card(meta: dict) -> None:
             g2.image(heatmap, caption="Heat Map", width="stretch")
         if overlay:
             g3.image(overlay, caption="Overlay", width="stretch")
+
+    if disagrees:
+        st.warning(
+            "The symptoms, causes, and treatment details below are grounded in the knowledge base entry "
+            "for the vision model's guess above — which AI verification just flagged as likely wrong. "
+            "Treat everything below as reference material for that guess only, not as advice for your actual plant.",
+            icon="⚠️",
+        )
 
     if meta.get("explanation"):
         st.markdown(f"**Why this diagnosis?** {meta['explanation']}")
