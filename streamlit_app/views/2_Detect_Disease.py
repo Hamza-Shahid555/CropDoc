@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 import streamlit as st
 
-from backend.agent.tools import match_disease_name
+from backend.agent.tools import lookup_disease, match_disease_name
 from streamlit_app.agents.claude_agent import synthesize_diagnosis
 from streamlit_app.agents.vision_agent import diagnose_from_image
 from streamlit_app.config import anthropic_configured, openai_configured
@@ -38,7 +38,11 @@ def _run_cnn(model, tensor, idx_to_class) -> dict:
 def _cnn_only_meta(cnn: dict, model, tensor, class_to_idx, pil_image, reason: str) -> dict:
     """Fallback used when no AI key is configured, or every AI call failed."""
     orig, heatmap, overlay = get_gradcam_pil(model, tensor, class_to_idx[cnn["class_name"]], pil_image, DEVICE)
-    kb_entry = match_disease_name(cnn["class_name"].replace("___", " ").replace("_", " ")) or {}
+    # Exact lookup by the CNN's own class name — not the fuzzy match_disease_name(), which is
+    # for grounding an LLM's free-text guess and requires a separately-known crop hint.
+    kb_entry = lookup_disease(cnn["class_name"])
+    if kb_entry.get("error"):
+        kb_entry = {}
     label = cnn["class_name"].replace("___", " — ").replace("_", " ")
     return {
         "class_name": cnn["class_name"],
