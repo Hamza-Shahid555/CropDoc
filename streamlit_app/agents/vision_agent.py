@@ -14,10 +14,13 @@ top guess."""
 
 import base64
 import json
+import logging
 
 from openai import OpenAI
 
 from ..config import OPENAI_API_KEY, OPENAI_CHAT_MODEL
+
+logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = (
     "You are an expert plant pathologist identifying a plant and its disease from a leaf photo. "
@@ -91,9 +94,12 @@ def _get_client() -> OpenAI:
     return _client
 
 
-def diagnose_from_image(image_bytes: bytes) -> dict:
+def diagnose_from_image(image_bytes: bytes) -> dict | None:
     """Primary diagnosis path: the vision LLM analyzes the photo directly, with
-    no CNN prediction anchoring or biasing its answer."""
+    no CNN prediction anchoring or biasing its answer. Returns None on failure
+    (never a fake placeholder result) so the caller can properly fall through
+    to another source instead of displaying "Unable to analyze" as if it were
+    a real diagnosis."""
     b64_image = base64.standard_b64encode(image_bytes).decode("ascii")
     try:
         resp = _get_client().chat.completions.create(
@@ -116,4 +122,5 @@ def diagnose_from_image(image_bytes: bytes) -> dict:
         data = json.loads(resp.choices[0].message.content or "{}")
         return {**FALLBACK, **data}
     except Exception:
-        return {**FALLBACK, "explanation": "AI diagnosis failed unexpectedly for this photo — please try again."}
+        logger.exception("OpenAI diagnose_from_image failed")
+        return None
