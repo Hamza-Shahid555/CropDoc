@@ -36,8 +36,13 @@ APP_TAGLINE = "AI-powered crop disease diagnosis and advisory"
 
 
 def openai_configured() -> bool:
-    return bool(OPENAI_API_KEY) and not OPENAI_API_KEY.startswith("sk-...")
+    # "sk-your-key-here" (the literal .env.example placeholder) does NOT start with "sk-...",
+    # so that check never actually caught someone pasting the template unchanged - which is
+    # exactly what happened on the first Streamlit Cloud deploy (confirmed via the real
+    # AuthenticationError: "Incorrect API key provided: sk-your-****-key"). Check for the
+    # real placeholder text instead of a pattern that doesn't match it.
+    return bool(OPENAI_API_KEY) and "your-key-here" not in OPENAI_API_KEY and "your" not in OPENAI_API_KEY.lower()
 
 
 def anthropic_configured() -> bool:
-    return bool(ANTHROPIC_API_KEY) and not ANTHROPIC_API_KEY.startswith("sk-ant-your")
+    return bool(ANTHROPIC_API_KEY) and "your-key-here" not in ANTHROPIC_API_KEY and "your" not in ANTHROPIC_API_KEY.lower()
