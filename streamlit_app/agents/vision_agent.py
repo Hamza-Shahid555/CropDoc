@@ -94,12 +94,17 @@ def _get_client() -> OpenAI:
     return _client
 
 
+last_error: str | None = None  # set by the most recent failed call; read by the caller for on-screen diagnostics
+
+
 def diagnose_from_image(image_bytes: bytes) -> dict | None:
     """Primary diagnosis path: the vision LLM analyzes the photo directly, with
     no CNN prediction anchoring or biasing its answer. Returns None on failure
     (never a fake placeholder result) so the caller can properly fall through
     to another source instead of displaying "Unable to analyze" as if it were
     a real diagnosis."""
+    global last_error
+    last_error = None
     b64_image = base64.standard_b64encode(image_bytes).decode("ascii")
     try:
         resp = _get_client().chat.completions.create(
@@ -121,6 +126,7 @@ def diagnose_from_image(image_bytes: bytes) -> dict | None:
             raise RuntimeError("Diagnosis response was truncated (hit token limit).")
         data = json.loads(resp.choices[0].message.content or "{}")
         return {**FALLBACK, **data}
-    except Exception:
+    except Exception as e:
+        last_error = f"{type(e).__name__}: {e}"
         logger.exception("OpenAI diagnose_from_image failed")
         return None

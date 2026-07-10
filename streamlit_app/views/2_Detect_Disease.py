@@ -5,6 +5,7 @@ from PIL import Image
 import streamlit as st
 
 from backend.agent.tools import lookup_disease, match_disease_name
+from streamlit_app.agents import claude_agent, vision_agent
 from streamlit_app.agents.claude_agent import synthesize_diagnosis
 from streamlit_app.agents.vision_agent import diagnose_from_image
 from streamlit_app.config import anthropic_configured, openai_configured
@@ -111,7 +112,13 @@ def _run_pipeline(pil_image: Image.Image) -> dict:
         final, final_source = openai_diagnosis, "openai"
 
     if final is None:
-        meta = _cnn_only_meta(cnn, model, tensor, class_to_idx, pil_image, "AI diagnosis failed unexpectedly for this photo.")
+        errors = []
+        if use_openai and vision_agent.last_error:
+            errors.append(f"OpenAI: {vision_agent.last_error}")
+        if use_claude and claude_agent.last_error:
+            errors.append(f"Claude: {claude_agent.last_error}")
+        detail = " — ".join(errors) if errors else "No further detail was captured."
+        meta = _cnn_only_meta(cnn, model, tensor, class_to_idx, pil_image, f"AI diagnosis failed: {detail}")
         db.log_prediction(user_id=user["id"], class_name=meta["class_name"], disease_name=meta["disease_name"],
                            confidence=meta["confidence"], is_healthy=meta["is_healthy"] or False)
         status.update(label="✅ Analysis complete (fallback).", state="complete", expanded=False)

@@ -99,7 +99,12 @@ def _build_context_block(cnn_context: dict | None, openai_context: dict | None) 
     return "Other findings for cross-reference (advisory only — form your own judgment first):\n\n" + "\n\n".join(parts)
 
 
-def synthesize_diagnosis(image_bytes: bytes, cnn_context: dict | None = None, openai_context: dict | None = None) -> dict:
+last_error: str | None = None  # set by the most recent failed call; read by the caller for on-screen diagnostics
+
+
+def synthesize_diagnosis(image_bytes: bytes, cnn_context: dict | None = None, openai_context: dict | None = None) -> dict | None:
+    global last_error
+    last_error = None
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     b64_image = base64.standard_b64encode(image_bytes).decode("ascii")
     context_block = _build_context_block(cnn_context, openai_context)
@@ -130,6 +135,7 @@ def synthesize_diagnosis(image_bytes: bytes, cnn_context: dict | None = None, op
             if block.type == "tool_use" and block.name == "record_diagnosis":
                 return dict(block.input)
         raise RuntimeError("Claude did not return a structured diagnosis.")
-    except Exception:
+    except Exception as e:
+        last_error = f"{type(e).__name__}: {e}"
         logger.exception("Claude synthesis failed")
         return None
