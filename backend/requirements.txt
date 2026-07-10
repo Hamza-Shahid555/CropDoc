@@ -1,0 +1,14 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+python-dotenv>=1.0
+openai>=1.30
+
+# Pinned: torch 2.2.2 only supports the NumPy 1.x ABI. numpy>=2 or a newer
+# opencv-python-headless build (which requires numpy>=2) will break Grad-CAM
+# with "Numpy is not available". Keep these three in lockstep.
+torch==2.2.2
+torchvision==0.17.2
+numpy<2
+opencv-python-headless<4.10
+Pillow>=10.0

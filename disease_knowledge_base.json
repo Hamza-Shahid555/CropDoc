@@ -1,0 +1,534 @@
+[
+  {
+    "class_name": "Tomato___Late_blight",
+    "disease_name": "Tomato Late Blight",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Water-soaked, irregularly shaped dark brown to black lesions appear on leaves, often with a pale green border at the advancing margins. In humid conditions, white fuzzy sporulation is visible on the underside of infected leaves. Infected fruit develops firm, dark brown, greasy-looking lesions that spread rapidly and render the fruit inedible.",
+    "precautionary_measures": [
+      "Remove and destroy all infected plant material immediately; do not compost affected leaves or stems",
+      "Avoid overhead irrigation; use drip irrigation to keep foliage as dry as possible",
+      "Ensure adequate spacing between plants (at least 60 cm) to promote air circulation",
+      "Plant late blight-resistant tomato varieties such as Legend, Defiant, or Plum Regal",
+      "Practice strict crop rotation — avoid planting tomatoes or potatoes in the same field for a minimum of three years"
+    ]
+  },
+  {
+    "class_name": "Tomato___healthy",
+    "disease_name": "Tomato Healthy",
+    "affected_crop": "Tomato",
+    "is_healthy": true,
+    "symptoms": "Healthy tomato leaves are deep green, smooth, and slightly serrated at the margins with no spots, lesions, or discolouration. The leaf surface is covered with fine glandular hairs and feels slightly sticky to the touch. Stems are firm and upright with strong lateral branching.",
+    "precautionary_measures": [
+      "Water plants at the base in the early morning to allow foliage to dry during the day",
+      "Stake or cage plants to keep fruit and foliage off the soil surface",
+      "Remove suckers and lower leaves periodically to improve air circulation within the canopy",
+      "Inspect plants weekly for early signs of pest or disease, especially on leaf undersides",
+      "Mulch around the base of plants to reduce soil splash and conserve moisture"
+    ]
+  },
+  {
+    "class_name": "Grape___healthy",
+    "disease_name": "Grape Healthy",
+    "affected_crop": "Grape",
+    "is_healthy": true,
+    "symptoms": "Healthy grapevine leaves are broadly lobed with a deep green colour on the upper surface and a paler underside. The leaf texture is slightly rough and veins are prominent. Leaf margins show fine, regular teeth with no browning, spotting, or curl.",
+    "precautionary_measures": [
+      "Prune vines annually during dormancy to maintain an open canopy and improve air circulation",
+      "Train vines on a trellis system to keep fruit clusters off the ground and promote even light exposure",
+      "Remove and dispose of fallen leaves and mummified fruit at the end of each season",
+      "Monitor for early signs of mildew, black rot, or leaf blight during warm and humid periods",
+      "Avoid excessive nitrogen fertilisation, which promotes lush vegetative growth more susceptible to disease"
+    ]
+  },
+  {
+    "class_name": "Orange___Haunglongbing_(Citrus_greening)",
+    "disease_name": "Citrus Greening (Huanglongbing)",
+    "affected_crop": "Orange",
+    "is_healthy": false,
+    "symptoms": "Affected leaves display an asymmetric yellowing known as blotchy mottle, where yellow and green patches occur irregularly on the same leaf rather than uniformly. Infected trees produce small, misshapen fruit that remains green at the bottom even when ripe and tastes bitter. Severe infections cause rapid tree decline with entire branches dying back.",
+    "precautionary_measures": [
+      "Remove and destroy infected trees promptly to prevent spread to neighbouring citrus trees",
+      "Control the Asian citrus psyllid (the insect vector) using biological control methods such as releasing the parasitic wasp Tamarixia radiata",
+      "Plant psyllid-free, disease-free certified nursery stock from reputable suppliers",
+      "Establish windbreaks to reduce psyllid movement into citrus orchards from surrounding areas",
+      "Avoid moving plant material, budwood, or soil between infected and healthy citrus groves"
+    ]
+  },
+  {
+    "class_name": "Soybean___healthy",
+    "disease_name": "Soybean Healthy",
+    "affected_crop": "Soybean",
+    "is_healthy": true,
+    "symptoms": "Healthy soybean leaves are trifoliate with oval leaflets that are smooth and uniformly dark green. The plant has an erect, hairy stem and well-developed root nodules that indicate effective nitrogen fixation. Leaves show no yellowing, spots, or curl at any stage of normal vegetative development.",
+    "precautionary_measures": [
+      "Use certified disease-free seed from a reputable source each planting season",
+      "Inoculate seeds with appropriate Bradyrhizobium japonicum rhizobia strains to maximise nitrogen fixation",
+      "Rotate soybeans with non-legume crops such as maize or sorghum to break pest and disease cycles",
+      "Maintain optimal plant populations and row spacing to avoid excessive canopy density",
+      "Scout fields regularly for signs of soybean rust, bacterial pustule, or pod and stem blight"
+    ]
+  },
+  {
+    "class_name": "Squash___Powdery_mildew",
+    "disease_name": "Squash Powdery Mildew",
+    "affected_crop": "Squash",
+    "is_healthy": false,
+    "symptoms": "White to grey powdery fungal growth appears on the upper surface of leaves, initially as small circular patches that rapidly expand to cover the entire leaf surface. Infected leaves turn yellow and become brittle, eventually dying back. The disease can spread to stems and petioles, significantly reducing photosynthesis and fruit development.",
+    "precautionary_measures": [
+      "Plant powdery mildew-resistant squash varieties whenever available",
+      "Space plants widely (90-120 cm between plants) to maximise air movement and reduce leaf surface humidity",
+      "Avoid overhead irrigation; water at the soil level to keep foliage dry",
+      "Remove and dispose of heavily infected leaves promptly to slow fungal spread",
+      "Apply diluted neem oil spray (5 mL per litre of water) as a preventative biological treatment when conditions favour disease development"
+    ]
+  },
+  {
+    "class_name": "Potato___healthy",
+    "disease_name": "Potato Healthy",
+    "affected_crop": "Potato",
+    "is_healthy": true,
+    "symptoms": "Healthy potato plants have erect, dark green compound leaves with multiple oval leaflets arranged alternately on the stem. The foliage is dense and the canopy closes fully at maturity. Stems are firm and show no lesions, wilting, or abnormal discolouration.",
+    "precautionary_measures": [
+      "Plant only certified disease-free seed potatoes from a trusted source",
+      "Hill soil around the base of plants as stems emerge to prevent tuber greening and reduce blight spore splash",
+      "Rotate potatoes with non-solanaceous crops (cereals, legumes) for at least three years",
+      "Destroy volunteer potato plants and solanaceous weeds near fields that could act as disease reservoirs",
+      "Monitor for early blight and late blight symptoms, particularly during periods of high humidity"
+    ]
+  },
+  {
+    "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+    "disease_name": "Corn Northern Leaf Blight",
+    "affected_crop": "Corn (Maize)",
+    "is_healthy": false,
+    "symptoms": "Long, elliptical, greyish-green to tan lesions up to 15 cm in length appear on the lower leaves first and progress upward through the canopy. Lesions have wavy, irregular margins and may show dark sooty sporulation in the centre during humid conditions. Severe infections cause extensive leaf death, reducing photosynthetic capacity and leading to significant yield losses.",
+    "precautionary_measures": [
+      "Plant Northern Leaf Blight-resistant or tolerant maize hybrids appropriate for your region",
+      "Practice crop rotation with non-host crops such as soybeans or sorghum to reduce inoculum in crop residues",
+      "Till or incorporate maize residue after harvest to accelerate decomposition and reduce spore survival",
+      "Ensure optimal plant spacing to promote air movement and faster drying of the leaf canopy after rain",
+      "Scout fields starting at silking when plants are most susceptible and prioritise resistant varieties for replanting"
+    ]
+  },
+  {
+    "class_name": "Tomato___Early_blight",
+    "disease_name": "Tomato Early Blight",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Dark brown, circular to irregular lesions with distinctive concentric rings — often described as a target board pattern — appear first on older, lower leaves. Lesions are surrounded by a yellow halo and may merge as the disease progresses. Severely infected leaves turn completely yellow and drop, leading to premature defoliation and reduced fruit quality.",
+    "precautionary_measures": [
+      "Remove and destroy infected lower leaves as soon as lesions are observed to slow the spread upward",
+      "Mulch around plant bases to prevent soil splash, which spreads fungal spores to lower leaves",
+      "Practice crop rotation with non-solanaceous crops for at least two years",
+      "Stake or cage plants to improve canopy air circulation and keep leaves off the soil surface",
+      "Use resistant tomato varieties and avoid working in the field when foliage is wet"
+    ]
+  },
+  {
+    "class_name": "Tomato___Septoria_leaf_spot",
+    "disease_name": "Tomato Septoria Leaf Spot",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Numerous small, circular lesions with dark brown borders and lighter tan to grey centres appear on lower leaves and progressively move up the plant. Tiny, dark fruiting bodies (pycnidia) are visible in the centre of lesions when examined closely. Severe infections cause rapid yellowing and defoliation, exposing fruit to sunscald.",
+    "precautionary_measures": [
+      "Remove affected lower leaves immediately at the first sign of disease and dispose of them away from the garden",
+      "Apply a thick layer of organic mulch (straw or wood chips) around plants to prevent soil splash and spore dispersal",
+      "Avoid overhead watering; use soaker hoses or drip irrigation to keep foliage dry",
+      "Rotate tomatoes out of the affected area for two to three years to allow spores in residue to die",
+      "Maintain plant vigour through balanced nutrition — overly stressed or nitrogen-deficient plants are more susceptible"
+    ]
+  },
+  {
+    "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+    "disease_name": "Corn Gray Leaf Spot (Cercospora Leaf Spot)",
+    "affected_crop": "Corn (Maize)",
+    "is_healthy": false,
+    "symptoms": "Rectangular, grey to tan lesions with parallel edges restricted by leaf veins develop on lower leaves and progress upward through the canopy. Lesions are initially pale green to yellow before turning grey-brown and papery. Under humid conditions, lesions may coalesce and cause extensive blighting of the entire leaf surface.",
+    "precautionary_measures": [
+      "Select and plant gray leaf spot-resistant maize hybrids recommended for your region",
+      "Incorporate or till maize residue after harvest to reduce fungal inoculum load for the following season",
+      "Rotate maize with non-host crops (soybeans, wheat, cotton) for at least one year between maize crops",
+      "Avoid planting in fields with poor drainage or heavy crop residue from previous maize crops in high-risk areas",
+      "Scout fields beginning at the 8-leaf stage and monitor upper canopy leaves, especially after prolonged leaf wetness"
+    ]
+  },
+  {
+    "class_name": "Strawberry___Leaf_scorch",
+    "disease_name": "Strawberry Leaf Scorch",
+    "affected_crop": "Strawberry",
+    "is_healthy": false,
+    "symptoms": "Small, irregular, dark purple to reddish-purple spots appear on the upper leaf surface, typically without a distinct border or halo. As the disease progresses, spots enlarge and coalesce, causing large scorched areas that turn brown and dry. Severely affected leaves wither and die while still attached to the plant, giving it a scorched or burnt appearance.",
+    "precautionary_measures": [
+      "Remove and destroy infected leaves and old foliage to reduce the source of spores for future infection",
+      "Avoid overhead irrigation; water plants at the base in the early morning so foliage dries quickly",
+      "Renovate strawberry beds after fruiting by mowing and thinning to improve air circulation",
+      "Plant certified disease-free runners from reputable nurseries and avoid planting in previously infected beds",
+      "Maintain adequate plant spacing (30-40 cm between plants) to reduce humidity within the canopy"
+    ]
+  },
+  {
+    "class_name": "Peach___healthy",
+    "disease_name": "Peach Healthy",
+    "affected_crop": "Peach",
+    "is_healthy": true,
+    "symptoms": "Healthy peach leaves are lanceolate, glossy dark green with a finely serrated margin and a slightly wavy surface. The leaves are arranged alternately on the branches and have no spots, lesions, curl, or abnormal colour. Young foliage may show a reddish tinge that transitions to green as it matures.",
+    "precautionary_measures": [
+      "Prune trees annually during the dormant season to maintain an open vase shape that maximises light penetration and air circulation",
+      "Remove and destroy mummified fruit and dead wood during winter pruning to eliminate overwintering disease inoculum",
+      "Thin fruit clusters in spring to reduce disease pressure and improve fruit size and quality",
+      "Manage orchard floor vegetation to reduce humidity and discourage pest habitat",
+      "Monitor for leaf curl, bacterial spot, and brown rot, which are the most common peach diseases"
+    ]
+  },
+  {
+    "class_name": "Apple___Apple_scab",
+    "disease_name": "Apple Scab",
+    "affected_crop": "Apple",
+    "is_healthy": false,
+    "symptoms": "Olive-green to brown, velvety, irregular spots appear on both the upper and lower surfaces of young leaves, typically causing leaf curling and distortion. On fruit, scab causes dark, rough, corky lesions that crack as the fruit grows, making it cosmetically unmarketable. Severely infected leaves turn yellow and drop prematurely, weakening the tree over multiple seasons.",
+    "precautionary_measures": [
+      "Rake and destroy fallen leaves in autumn, as leaf litter is the primary overwintering site for the scab fungus",
+      "Prune trees to an open canopy structure to improve air circulation and accelerate leaf drying after rain",
+      "Plant scab-resistant apple varieties such as Liberty, Freedom, Enterprise, or Redfree in new plantings",
+      "Avoid overhead irrigation which wets foliage and prolongs leaf wetness periods that favour infection",
+      "Monitor infection risk using temperature and leaf wetness data; delay field operations during high-risk periods"
+    ]
+  },
+  {
+    "class_name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "disease_name": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Infected plants show upward cupping and curling of young leaves, which also turn yellow at the margins while the interveinal areas remain green. Plants infected at an early stage are severely stunted with greatly reduced leaf size and a bushy, clustered appearance. Flowers abort and fruit set is minimal or absent, leading to near-total yield loss in severe cases.",
+    "precautionary_measures": [
+      "Use reflective silver mulches around the base of plants to repel whitefly, the primary insect vector of the virus",
+      "Install fine insect-proof mesh (50 mesh or finer) in seedling nurseries to prevent whitefly infestations",
+      "Plant TYLCV-tolerant or resistant tomato varieties developed for high-whitefly-pressure environments",
+      "Remove and destroy infected plants promptly to prevent the virus from spreading to healthy plants via whitefly",
+      "Eliminate weeds in and around the field that can act as alternative hosts for both whitefly and the virus"
+    ]
+  },
+  {
+    "class_name": "Tomato___Bacterial_spot",
+    "disease_name": "Tomato Bacterial Spot",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Small, water-soaked, dark brown to black spots with irregular margins and a yellow halo appear on leaves, stems, and fruit. On fruit, spots develop into rough, raised, scab-like lesions with a dark centre. Bacterial ooze may be visible on lesions during wet conditions, and severely infected leaves turn yellow and drop prematurely.",
+    "precautionary_measures": [
+      "Use certified disease-free seed — soak seed in hot water at 52 degrees Celsius for 30 minutes before planting to reduce seed-borne inoculum",
+      "Avoid working in the field when plants are wet, as the bacteria spread readily on hands, tools, and clothing",
+      "Use drip irrigation rather than overhead sprinklers to keep foliage and fruit dry",
+      "Plant resistant or tolerant tomato varieties where bacterial spot is a recurring problem",
+      "Rotate tomatoes and peppers with non-solanaceous crops for at least two seasons to reduce soil inoculum"
+    ]
+  },
+  {
+    "class_name": "Apple___Black_rot",
+    "disease_name": "Apple Black Rot",
+    "affected_crop": "Apple",
+    "is_healthy": false,
+    "symptoms": "On leaves, black rot causes circular, purple-bordered spots with a tan or brown centre, each often containing small black fruiting bodies. On fruit, black rot begins as a small, brown, slightly sunken lesion that expands into concentric rings, eventually turning the entire fruit black and mummified. Cankers on branches are elongated, sunken, and reddish-brown, and can girdle and kill limbs.",
+    "precautionary_measures": [
+      "Remove mummified fruit from trees and the orchard floor, as these are a primary source of black rot spores",
+      "Prune out dead and cankered wood during dormancy and dispose of it away from the orchard",
+      "Maintain tree vigour through appropriate nutrition and watering; stressed trees are far more susceptible",
+      "Harvest fruit promptly and handle gently to avoid wounds that provide entry points for the fungus",
+      "Ensure adequate tree spacing for good airflow and rapid canopy drying after rain events"
+    ]
+  },
+  {
+    "class_name": "Blueberry___healthy",
+    "disease_name": "Blueberry Healthy",
+    "affected_crop": "Blueberry",
+    "is_healthy": true,
+    "symptoms": "Healthy blueberry leaves are elliptical, smooth-edged, and a vibrant medium to dark green during the growing season, turning brilliant red, orange, or yellow in autumn. The undersides of leaves are slightly paler and may have small gland dots. Young shoots are green and flexible with no browning or lesions.",
+    "precautionary_measures": [
+      "Maintain soil pH between 4.5 and 5.5 using elemental sulphur amendments, as blueberries require acidic conditions",
+      "Mulch deeply with pine bark or wood chips to retain moisture, suppress weeds, and maintain soil acidity",
+      "Prune out old, weak canes to the ground every few years to encourage vigorous new fruiting wood",
+      "Protect ripening fruit with bird netting to prevent losses from bird feeding",
+      "Monitor for mummy berry, stem blight, and leaf spot diseases, which are common in humid climates"
+    ]
+  },
+  {
+    "class_name": "Cherry_(including_sour)___Powdery_mildew",
+    "disease_name": "Cherry Powdery Mildew",
+    "affected_crop": "Cherry",
+    "is_healthy": false,
+    "symptoms": "A white to grey, powdery fungal coating develops on the upper surface of young leaves, petioles, and shoots. Infected leaves curl upward, become distorted, and may turn yellow or brown before dropping prematurely. Severely affected growing tips cease elongation, and infected fruit may develop a dull, russeted surface coating that reduces marketability.",
+    "precautionary_measures": [
+      "Prune trees to an open canopy to reduce shading and humidity, which favour powdery mildew development",
+      "Avoid heavy nitrogen fertilisation, which promotes soft, susceptible vegetative growth",
+      "Remove and dispose of infected shoots and leaves to reduce the overwintering fungal population",
+      "Ensure adequate spacing between trees to maximise air circulation through the orchard",
+      "Apply wettable sulphur or potassium bicarbonate sprays as preventative biological treatments during shoot emergence if disease is predictable from prior seasons"
+    ]
+  },
+  {
+    "class_name": "Peach___Bacterial_spot",
+    "disease_name": "Peach Bacterial Spot",
+    "affected_crop": "Peach",
+    "is_healthy": false,
+    "symptoms": "Small, water-soaked, angular lesions on leaves quickly turn dark brown to black and often fall out, leaving a characteristic shot-hole appearance. On fruit, lesions begin as small, water-soaked spots that deepen into pits with cracked edges and may ooze a gummy exudate. Infected twigs develop dark, sunken cankers that can girdle and kill young shoots.",
+    "precautionary_measures": [
+      "Plant bacterial spot-resistant peach varieties, particularly in areas with high rainfall or frequent spring storms",
+      "Prune trees to an open vase shape to maximise air circulation and reduce the leaf wetness periods that favour infection",
+      "Avoid using high-pressure overhead irrigation, which can physically spread bacteria from lesion to lesion",
+      "Remove and destroy pruned material from infected trees to eliminate the primary bacterial reservoir",
+      "Establish windbreaks to protect orchards from strong winds and rain, which spread the bacterium during wet weather"
+    ]
+  },
+  {
+    "class_name": "Apple___Cedar_apple_rust",
+    "disease_name": "Apple Cedar Rust",
+    "affected_crop": "Apple",
+    "is_healthy": false,
+    "symptoms": "Bright orange-yellow spots with a red border appear on the upper surface of apple leaves in spring, soon after petal fall. On the underside of infected leaves, orange, tube-like aecia (spore-producing structures) develop by midsummer. Severely infected leaves drop early, weakening the tree, and infected fruit develops distorted, corky lesions that reduce quality.",
+    "precautionary_measures": [
+      "Remove nearby Eastern red cedar and ornamental junipers within 500 metres of apple orchards, as these are the alternate host required to complete the rust life cycle",
+      "Plant cedar apple rust-resistant apple varieties such as Liberty, Freedom, Redfree, or Enterprise",
+      "Monitor weather forecasts for warm, wet spring conditions that favour spore release from cedar galls",
+      "Scout orchards at petal fall and the subsequent weeks when spore dispersal is highest",
+      "Maintain tree vigour through appropriate nutrition to improve the tree's natural defence capacity"
+    ]
+  },
+  {
+    "class_name": "Tomato___Target_Spot",
+    "disease_name": "Tomato Target Spot",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Circular to oval brown lesions with concentric rings resembling a target appear on leaves at all stages of plant development, often with a yellow halo surrounding each lesion. Lesions may merge under severe disease pressure, causing large areas of blighted tissue. The disease also affects stems, petioles, and fruit, producing shallow, dark brown, sunken pits on fruit.",
+    "precautionary_measures": [
+      "Remove and destroy infected plant debris at the end of the season, as the fungus survives on crop residue",
+      "Avoid dense planting to allow adequate air circulation, which reduces humidity favouring spore germination",
+      "Use drip irrigation and stake plants to minimise leaf wetness and soil splash of spores",
+      "Rotate tomatoes with non-solanaceous crops for at least two years to reduce soil inoculum",
+      "Prune lower leaves and any leaves touching the soil to create a cleaner growing environment"
+    ]
+  },
+  {
+    "class_name": "Pepper,_bell___healthy",
+    "disease_name": "Bell Pepper Healthy",
+    "affected_crop": "Bell Pepper",
+    "is_healthy": true,
+    "symptoms": "Healthy bell pepper leaves are glossy, dark green, and broadly oval with smooth margins and prominent veins. The plant maintains an upright, branching structure with firm stems. Foliage is dense during vegetative growth, transitioning to an open canopy as fruiting begins and the plant supports the weight of developing peppers.",
+    "precautionary_measures": [
+      "Water consistently at the base of plants — irregular watering causes blossom end rot in peppers",
+      "Stake or cage plants to support the weight of fruit and prevent stem breakage",
+      "Mulch to maintain even soil moisture and prevent soil splash onto lower leaves",
+      "Inspect plants regularly for aphids, whitefly, and thrips, which are the primary vectors of bell pepper viruses",
+      "Rotate pepper crops with cereals or brassicas every two to three years to prevent build-up of soilborne diseases"
+    ]
+  },
+  {
+    "class_name": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "disease_name": "Grape Leaf Blight (Isariopsis Leaf Spot)",
+    "affected_crop": "Grape",
+    "is_healthy": false,
+    "symptoms": "Irregular, dark brown to reddish-brown lesions appear on the upper surface of grape leaves, often with a pale yellowish margin. Affected leaves turn yellow and drop prematurely, weakening the vine and reducing carbohydrate reserves. Severe early defoliation can expose fruit clusters to sunscald and significantly reduce the following season's yield potential.",
+    "precautionary_measures": [
+      "Prune vines annually during dormancy to maintain an open canopy structure that promotes rapid drying after rain",
+      "Remove and destroy fallen leaves from the vineyard floor at the end of each season to eliminate overwintering spores",
+      "Ensure adequate spacing between rows and between vines to maximise airflow through the canopy",
+      "Avoid excessive nitrogen applications which stimulate dense, shade-creating growth that retains humidity",
+      "Inspect vines regularly from fruit set onward when the disease is most likely to develop in warm and wet conditions"
+    ]
+  },
+  {
+    "class_name": "Potato___Late_blight",
+    "disease_name": "Potato Late Blight",
+    "affected_crop": "Potato",
+    "is_healthy": false,
+    "symptoms": "Water-soaked, dark green to brown lesions appear on the tips and edges of leaves, often with a pale border at the advancing edge. Under humid conditions, white mycelial growth is visible on the underside of infected leaves. Infected tubers show a reddish-brown, granular dry rot that extends from the skin inward.",
+    "precautionary_measures": [
+      "Use only certified disease-free seed tubers from a reputable source",
+      "Plant late blight-resistant potato varieties such as Sarpo Mira, Defender, or locally adapted resistant cultivars",
+      "Hill soil deeply around potato plants to protect tubers from spore wash-down from infected foliage",
+      "Remove and destroy infected haulm (tops) before harvest to prevent spore contamination of tubers",
+      "Avoid planting near tomatoes and implement a minimum three-year crop rotation away from solanaceous crops"
+    ]
+  },
+  {
+    "class_name": "Tomato___Tomato_mosaic_virus",
+    "disease_name": "Tomato Mosaic Virus (ToMV)",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Infected plants display a mosaic pattern of light and dark green patches on leaves, with younger leaves showing more pronounced symptoms. Affected leaves may show fern-like distortion, narrowing, and twisting known as shoestringing. Plants are often stunted with poor fruit set, and affected fruit may show internal browning or uneven ripening.",
+    "precautionary_measures": [
+      "Use only certified virus-free seed or soak seed in a 10% trisodium phosphate solution for 15 minutes before planting",
+      "Wash hands thoroughly with soap and water before handling plants, and avoid tobacco products in the garden as Tobacco Mosaic Virus can spread to tomatoes",
+      "Remove and destroy infected plants promptly to prevent mechanical spread through contact",
+      "Disinfect tools, stakes, and growing surfaces with a 10% bleach solution between uses",
+      "Plant ToMV-resistant tomato varieties, which are widely available and provide the most reliable long-term protection"
+    ]
+  },
+  {
+    "class_name": "Strawberry___healthy",
+    "disease_name": "Strawberry Healthy",
+    "affected_crop": "Strawberry",
+    "is_healthy": true,
+    "symptoms": "Healthy strawberry plants have trifoliate leaves with broadly oval, serrated leaflets that are uniformly bright to medium green on the upper surface and slightly paler below. The petioles are erect and firm, and the plant produces compact runners from the crown. Flowers are white with a yellow centre, and there is no spotting, browning, or curl on any part of the plant.",
+    "precautionary_measures": [
+      "Renovate strawberry beds after the main fruiting season by mowing, thinning to one plant per 30 cm, and fertilising to maintain vigour",
+      "Replace plants every three years as disease and virus incidence increases in older beds",
+      "Use fresh, certified disease-free runners for new plantings rather than propagating from old beds",
+      "Apply mulch during winter to protect crowns from frost damage and to suppress weeds in spring",
+      "Water at the base of plants in the morning to keep foliage dry and reduce disease incidence"
+    ]
+  },
+  {
+    "class_name": "Apple___healthy",
+    "disease_name": "Apple Healthy",
+    "affected_crop": "Apple",
+    "is_healthy": true,
+    "symptoms": "Healthy apple leaves are elliptical to oval, dark green on the upper surface and slightly paler below, with finely serrated margins. The leaf surface is smooth or very lightly hairy with no spots, lesions, or discolouration. Branches are firm and smooth with characteristic grey-brown bark.",
+    "precautionary_measures": [
+      "Prune annually during dormancy to remove crossing, dead, or diseased branches and maintain an open canopy",
+      "Thin fruit clusters to one or two fruit per cluster in late spring to improve fruit size and reduce branch stress",
+      "Rake and dispose of fallen leaves in autumn to remove overwintering fungal spores and pest eggs",
+      "Maintain a clean orchard floor and remove fallen fruit promptly to reduce insect and disease pressure",
+      "Apply dormant-season horticultural oil sprays to control overwintering aphid eggs and scale insects"
+    ]
+  },
+  {
+    "class_name": "Grape___Black_rot",
+    "disease_name": "Grape Black Rot",
+    "affected_crop": "Grape",
+    "is_healthy": false,
+    "symptoms": "On leaves, black rot causes circular, tan lesions with a dark brown to black margin, each containing many tiny black fruiting bodies in the centre. On berries, infection begins as a white spot that rapidly expands, causing the berry to shrivel and turn hard, black, and mummified. Affected clusters may have a mix of healthy and completely mummified berries.",
+    "precautionary_measures": [
+      "Remove and destroy all mummified berries from the vine and from the vineyard floor, as these are the primary source of spores for new infections",
+      "Prune vines to an open canopy to reduce leaf and fruit wetness periods that favour spore germination",
+      "Remove all infected leaves, tendrils, and shoots during the growing season and dispose of them away from the vineyard",
+      "Weed regularly to prevent excessive canopy shading and maintain the airflow needed to dry the canopy quickly after rain",
+      "Implement a minimum two-year rotation for any new planting if black rot was severe in the previous vineyard"
+    ]
+  },
+  {
+    "class_name": "Potato___Early_blight",
+    "disease_name": "Potato Early Blight",
+    "affected_crop": "Potato",
+    "is_healthy": false,
+    "symptoms": "Dark brown, circular to angular lesions with concentric rings forming a target-like pattern appear first on older, lower leaves and spread upward. Lesions are surrounded by a yellow halo of chlorotic tissue. As the disease progresses, lesions coalesce and severely infected leaves turn brown and die, significantly reducing the leaf area available for photosynthesis.",
+    "precautionary_measures": [
+      "Plant disease-free certified seed potatoes and choose early blight-tolerant varieties when available",
+      "Maintain plant vigour with appropriate and balanced fertilisation — nitrogen-deficient plants are particularly susceptible",
+      "Remove and destroy infected foliage and crop debris at the end of the season to reduce overwintering inoculum",
+      "Practice crop rotation, avoiding planting potatoes in the same field more frequently than once every three years",
+      "Avoid damaging plants during cultivation, as wounds provide entry points for the early blight fungus"
+    ]
+  },
+  {
+    "class_name": "Cherry_(including_sour)___healthy",
+    "disease_name": "Cherry Healthy",
+    "affected_crop": "Cherry",
+    "is_healthy": true,
+    "symptoms": "Healthy cherry leaves are broadly elliptical with a pointed tip and doubly serrated margins, coloured deep shiny green on the upper surface and paler below. The leaves are smooth with prominent veins and no spots, holes, or discolouration. New growth is a lighter yellowish-green that deepens to the mature colour within a few weeks.",
+    "precautionary_measures": [
+      "Prune trees annually in late winter to remove dead wood, improve canopy shape, and maximise air and light penetration",
+      "Protect fruit from bird damage using reflective tape, noise deterrents, or netting",
+      "Monitor for cherry leaf spot and brown rot, which are the most economically important cherry diseases",
+      "Avoid overhead irrigation that wets foliage; use ground-level drip systems where possible",
+      "Remove and destroy fallen leaves in autumn to reduce the overwintering inoculum of leaf spot fungi"
+    ]
+  },
+  {
+    "class_name": "Corn_(maize)___Common_rust_",
+    "disease_name": "Corn Common Rust",
+    "affected_crop": "Corn (Maize)",
+    "is_healthy": false,
+    "symptoms": "Small, circular to elongated, powdery, reddish-brown pustules (uredinia) appear scattered across both upper and lower leaf surfaces, often between the veins. As the season progresses, pustules turn darker as they produce overwintering spores. Severe infections cause extensive leaf yellowing and necrosis, and heavily infected plants may show reduced grain fill.",
+    "precautionary_measures": [
+      "Plant common rust-resistant maize hybrids, particularly in areas where rust is a recurring problem each growing season",
+      "Plant early to allow the crop to reach maturity before rust spore levels build up to damaging levels later in the season",
+      "Avoid planting in fields with a history of severe rust pressure without using resistant varieties",
+      "Monitor fields starting at the 8-10 leaf stage for early pustule development, especially on the lower leaves",
+      "Remove heavily infected volunteer maize plants from field borders, as these can serve as a reservoir for rust spores"
+    ]
+  },
+  {
+    "class_name": "Grape___Esca_(Black_Measles)",
+    "disease_name": "Grape Esca (Black Measles)",
+    "affected_crop": "Grape",
+    "is_healthy": false,
+    "symptoms": "Leaves display an interveinal yellowing or reddening pattern known as tiger stripes — alternating yellow or red bands between green veins — starting from the leaf margins and progressing inward. Berries develop dark spots and may shrivel and crack. In severe cases, entire shoots collapse suddenly in a syndrome called apoplexy, where a vine dies back rapidly during hot summer weather.",
+    "precautionary_measures": [
+      "Make clean, smooth pruning cuts to minimise the wound surface area through which the Esca-associated fungi enter",
+      "Apply wound sealants to large pruning wounds immediately after cutting to protect against fungal colonisation",
+      "Prune during dry weather conditions to reduce fungal spore dispersal and infection risk at wound sites",
+      "Remove and destroy dead wood and mummified wood infected with Esca, as these harbour the causal fungi",
+      "Avoid mechanical injuries to trunks and cordons during vineyard operations, as wounds are the primary infection pathway"
+    ]
+  },
+  {
+    "class_name": "Raspberry___healthy",
+    "disease_name": "Raspberry Healthy",
+    "affected_crop": "Raspberry",
+    "is_healthy": true,
+    "symptoms": "Healthy raspberry canes are upright and firm, with a light green to reddish tinge in their first year (primocanes) and a woody, brownish appearance in their second year (floricanes). Leaves are pinnately compound with three to five oval, serrated leaflets that are mid-green above and silvery-white beneath due to fine hairs. There are no lesions, spots, or abnormal discolouration on leaves or canes.",
+    "precautionary_measures": [
+      "Remove and destroy spent floricanes (second-year canes) immediately after fruiting to reduce disease and pest pressure",
+      "Thin primocanes in spring to 10-15 canes per metre of row to improve air circulation and light penetration",
+      "Train canes on a trellis wire system to keep them off the ground and improve air movement",
+      "Avoid excessive nitrogen applications which promote dense, lush growth susceptible to cane botrytis and spur blight",
+      "Inspect canes regularly for raspberry cane blight and spur blight, removing and destroying infected canes at the first sign of disease"
+    ]
+  },
+  {
+    "class_name": "Tomato___Leaf_Mold",
+    "disease_name": "Tomato Leaf Mold",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Pale greenish-yellow spots with irregular margins appear on the upper surface of leaves, while the corresponding underside develops a distinctive olive-green to grey-purple, velvety fungal growth. Infected leaves curl upward, turn brown, and die while remaining attached to the stem. The disease predominantly affects greenhouse tomatoes but can occur outdoors in warm, humid conditions.",
+    "precautionary_measures": [
+      "Maintain greenhouse relative humidity below 85% through adequate ventilation, heating, and air circulation",
+      "Remove and dispose of infected leaves as soon as symptoms are observed to reduce spore levels within the growing environment",
+      "Space plants appropriately and train vines to a single stem to maximise airflow through the canopy",
+      "Avoid wetting foliage during irrigation; use drip irrigation targeted at the root zone",
+      "Plant tomato varieties with resistance to Leaf Mold (look for Cf genes in the variety description)"
+    ]
+  },
+  {
+    "class_name": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "disease_name": "Tomato Spider Mites (Two-spotted Spider Mite)",
+    "affected_crop": "Tomato",
+    "is_healthy": false,
+    "symptoms": "Infested leaves develop a characteristic stippled or bronzed appearance on the upper surface as mites pierce individual cells and extract contents, leaving tiny pale dots. Fine silk webbing is visible on the undersides of leaves and between leaflets when infestations are heavy. Severely infested leaves turn yellow, dry out, and drop prematurely, leading to significant plant stress.",
+    "precautionary_measures": [
+      "Introduce predatory mites such as Phytoseiulus persimilis or Neoseiulus californicus as biological control in greenhouse settings",
+      "Maintain adequate soil moisture — spider mites thrive in hot, dry conditions and are suppressed by regular appropriate irrigation",
+      "Use a strong spray of water to dislodge mites from the undersides of leaves as a physical control measure",
+      "Avoid excessive use of broad-spectrum insecticides that kill natural predators which normally keep spider mite populations in check",
+      "Inspect the undersides of leaves regularly during hot and dry periods for early detection before population explosions occur"
+    ]
+  },
+  {
+    "class_name": "Pepper,_bell___Bacterial_spot",
+    "disease_name": "Bell Pepper Bacterial Spot",
+    "affected_crop": "Bell Pepper",
+    "is_healthy": false,
+    "symptoms": "Small, water-soaked spots with irregular margins appear on leaves, initially translucent and dark green but turning brown to black with a yellow halo as they age. Lesions on fruit begin as small, raised blisters that develop into rough, raised, irregular scab-like lesions with cracked margins. Severely affected leaves drop prematurely, defoliating the plant and exposing fruit to sunscald.",
+    "precautionary_measures": [
+      "Start with certified disease-free seed; treat seed with hot water (50 degrees Celsius for 25 minutes) before planting to eliminate seed-borne bacteria",
+      "Use drip irrigation to minimise wetting of foliage and fruit surfaces, which are required for bacterial entry",
+      "Avoid working in the field during and after rain or when plants are wet, to prevent mechanical spread",
+      "Plant resistant or tolerant pepper varieties where bacterial spot is a persistent problem",
+      "Rotate peppers with non-solanaceous crops (cereals, cucurbits) for at least two years to reduce soil bacterial populations"
+    ]
+  },
+  {
+    "class_name": "Corn_(maize)___healthy",
+    "disease_name": "Corn (Maize) Healthy",
+    "affected_crop": "Corn (Maize)",
+    "is_healthy": true,
+    "symptoms": "Healthy maize leaves are long, strap-shaped, with a prominent midrib, smooth surface, and wavy margins. The colour is a uniform, vibrant green from emergence through grain fill, with no streaks, spots, or lesions of any kind. Plants are upright and well-anchored with a strong root system and a defined tasselling and silking period.",
+    "precautionary_measures": [
+      "Select hybrid varieties appropriate for your region with known resistance to locally prevalent diseases such as gray leaf spot or northern leaf blight",
+      "Maintain optimal plant populations (as specified on the seed bag) to avoid excessive competition for light, water, and nutrients",
+      "Rotate maize with soybeans, wheat, or other non-grass crops annually to break disease and pest cycles",
+      "Ensure adequate and balanced nutrition, particularly nitrogen at key growth stages, to maintain plant health",
+      "Monitor fields weekly from emergence through silking for early signs of disease and pest pressure, enabling timely intervention"
+    ]
+  }
+]

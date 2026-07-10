@@ -1,0 +1,181 @@
+CropDoc — Complete Step-by-Step Guide
+PHASE 1: Train the Model on Kaggle
+Step 1 — Create a Kaggle account
+Go to kaggle.com → Sign up (free)
+Verify your phone number (required to use GPU)
+Step 2 — Upload the training notebook
+Click Create → New Notebook
+In the notebook editor, click the three dots (⋯) → Import Notebook
+Upload d:\FYP\CropDoc_Training.ipynb
+Step 3 — Attach the dataset
+On the right panel click Add Data
+Search: new-plant-diseases-dataset
+Select the one by vipoooool (87,000+ images, 38 classes)
+Click Add
+Step 4 — Enable GPU
+On the right panel → Session options
+Accelerator → select GPU T4 x2
+Persistence → keep as is
+Step 5 — Run the notebook
+Click Run All (top menu → Run → Run All)
+Wait 30–40 minutes — you'll see each cell execute
+Watch for the final output: Best model saved and accuracy numbers
+Step 6 — Note your accuracy numbers
+At the end of Section 9, the notebook prints a full classification report. Write these down:
+
+Overall validation accuracy (e.g. Accuracy: 94.32%)
+Per-class precision/recall (copy the full table)
+Best epoch and its loss values from the training loop output
+Step 7 — Download output files
+On the right panel → Output tab
+Download these files from /kaggle/working/:
+File	Purpose
+cropdoc_resnet9.pth	Trained model — required
+cropdoc_resnet9.onnx	ONNX export
+training_history.png	Loss/accuracy curves
+class_distribution.png	EDA chart
+sample_images.png	Sample grid
+gradcam_samples.png	Grad-CAM grid
+confusion_matrix.png	Confusion matrix
+per_class_accuracy.png	Per-class bar chart
+PHASE 2: Set Up Your Local Machine
+Step 8 — Install Python
+Go to python.org/downloads
+Download Python 3.11 (recommended)
+Run installer → check "Add Python to PATH" → Install Now
+Open a new terminal and verify:
+
+python --version
+# Should show: Python 3.11.x
+Step 9 — Open terminal in your project folder
+
+cd d:\FYP
+Step 10 — Install dependencies
+
+pip install -r requirements.txt
+This installs: PyTorch, Streamlit, HuggingFace Transformers, OpenCV, Pillow. Takes 5–10 minutes.
+
+Step 11 — Place the model file
+Copy cropdoc_resnet9.pth (downloaded from Kaggle) into d:\FYP\ so it sits next to app.py.
+
+Your folder should look like:
+
+
+d:\FYP\
+  app.py
+  local_inference.py
+  chatbot.py
+  disease_knowledge_base.json
+  requirements.txt
+  cropdoc_resnet9.pth        ← paste here
+  CropDoc_Training.ipynb
+  CropDoc_FYP_Report.docx
+PHASE 3: Run the Web App
+Step 12 — Launch the app
+
+cd d:\FYP
+streamlit run app.py
+Browser opens automatically at http://localhost:8501
+
+Step 13 — Load the models (do this once per session)
+In the sidebar, confirm the checkpoint path shows cropdoc_resnet9.pth
+Click Load Model + Chatbot
+Wait for both green ticks:
+Vision model loaded
+Language model loaded ← first time downloads flan-t5-base (~250 MB)
+Step 14 — Detect a disease
+Click the Detect Disease tab
+Click Browse files → upload any leaf photo (JPG or PNG)
+Click Analyse
+Results appear on the right:
+Disease name + confidence %
+Three-panel Grad-CAM (Original / Heat Map / Overlay)
+Symptoms and recommended actions
+Step 15 — Chat about the disease
+Click the Ask CropDoc tab
+The detected disease is automatically loaded as context
+Type any question, for example:
+"How do I treat this disease without chemicals?"
+"Will this spread to other plants?"
+"What are the early warning signs?"
+Press Enter — the AI responds instantly
+PHASE 4: Complete the Report
+Step 16 — Open the report
+Open d:\FYP\CropDoc_FYP_Report.docx in Microsoft Word.
+
+Press Ctrl + H (Find & Replace) to locate all red placeholders.
+
+Or use Ctrl + F and search for [INSERT.
+
+Step 17 — Fill in each placeholder
+Placeholder	What to put
+[INSERT: Final validation accuracy]	e.g. 94.32%
+[INSERT: Training accuracy curve]	Insert training_history.png
+[INSERT: Confusion matrix figure]	Insert confusion_matrix.png
+[INSERT: Per-class accuracy chart]	Insert per_class_accuracy.png
+[INSERT: Grad-CAM figure]	Insert gradcam_samples.png
+[INSERT: Class distribution chart]	Insert class_distribution.png
+[INSERT: Sample images grid]	Insert sample_images.png
+[INSERT: training time]	Check Kaggle notebook runtime
+[INSERT: per-class precision/recall table]	Paste from notebook output
+Step 18 — Insert images into Word
+Click where you want the image
+Insert → Pictures → This Device
+Select the .png from your downloads
+Right-click image → Wrap Text → In Line with Text
+Resize to fit the column width
+Step 19 — Final review checklist
+ All red placeholders replaced
+ All figures have captions (Figure 1, Figure 2, etc.)
+ Table of Contents updated (right-click → Update Field)
+ Page numbers correct
+ References section complete
+ Abstract updated with real accuracy numbers
+ Spell check done (Review → Spelling & Grammar)
+PHASE 5: Demo & Submission
+Step 20 — Prepare demo leaf images
+Download test images from Google Images for diseases like:
+
+Tomato Late Blight
+Apple Scab
+Corn Common Rust
+Save them as JPG and test each one in the web app before your demo.
+
+Step 21 — For FYP submission
+Zip and submit:
+
+
+CropDoc_FYP_Report.docx
+CropDoc_Training.ipynb
+app.py
+local_inference.py
+chatbot.py
+disease_knowledge_base.json
+requirements.txt
+cropdoc_resnet9.pth  (or share Kaggle notebook link)
+Step 22 — For the demo / viva
+Run the web app live:
+
+
+cd d:\FYP
+streamlit run app.py
+Show the panel:
+
+Upload a healthy leaf → shows healthy ✅
+Upload a diseased leaf → shows disease name + confidence + Grad-CAM heatmap
+Switch to chat → ask a question → show AI response
+Quick Reference
+
+# Install (one time)
+pip install -r requirements.txt
+
+# Run web app
+cd d:\FYP
+streamlit run app.py
+
+# Run CLI inference only (no web)
+python local_inference.py --image leaf.jpg --model cropdoc_resnet9.pth
+
+# Run chatbot only (no web)
+python chatbot.py --disease "Tomato___Late_blight"
+The single most important step is Step 5 (Run All on Kaggle) — everything else follows from the trained model
