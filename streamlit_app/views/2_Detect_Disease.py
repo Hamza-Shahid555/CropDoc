@@ -41,8 +41,13 @@ def _run_pipeline(pil_image: Image.Image) -> dict:
     status.update(label="📚 Searching knowledge base...")
     kb_entry = lookup_disease(class_name)
 
-    status.update(label="🧠 Consulting AI expert..." if openai_configured() else "🧠 (Skipping AI narrative — no API key)")
-    narrative = narrate_diagnosis(kb_entry, confidence) if openai_configured() else {}
+    status.update(label="🧠 AI verifying against the photo..." if openai_configured() else "🧠 (Skipping AI verification — no API key)")
+    if openai_configured():
+        img_buf = io.BytesIO()
+        pil_image.convert("RGB").save(img_buf, format="JPEG", quality=90)
+        narrative = narrate_diagnosis(kb_entry, confidence, img_buf.getvalue())
+    else:
+        narrative = {}
 
     status.update(label="💡 Preparing recommendations...")
     meta = {

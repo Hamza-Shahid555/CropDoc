@@ -29,6 +29,33 @@ def pil_to_b64(pil_image) -> str:
     return base64.b64encode(buf.getvalue()).decode("ascii")
 
 
+def _render_verification_banner(meta: dict) -> None:
+    """Always-visible AI-verification result — never buried, since the vision model
+    (38 fixed classes, no 'unknown' option) can be confidently wrong on its own."""
+    agrees = meta.get("agrees_with_model")
+    note = meta.get("agreement_note")
+
+    if agrees is False:
+        alt = meta.get("alternative_diagnosis")
+        st.error(
+            f"⚠️ **AI verification disagrees with the vision model.** {note or ''}"
+            + (f" Possible alternative: **{alt}**" if alt else ""),
+            icon="⚠️",
+        )
+    elif agrees is True:
+        st.success(f"✅ AI verification agrees with this diagnosis. {note or ''}", icon="✅")
+    elif note:
+        st.warning(note, icon="ℹ️")
+
+    if not meta.get("image_quality_ok", True):
+        issue = meta.get("image_quality_issue")
+        st.warning(
+            f"📸 **Image quality issue:** {issue or 'This photo may be too unclear to diagnose confidently.'} "
+            "Try a clearer, closer, well-lit photo for a more reliable diagnosis.",
+            icon="📸",
+        )
+
+
 def render_diagnosis_card(meta: dict) -> None:
     severity = meta.get("severity", "Unknown")
     badge_kind = _SEVERITY_BADGE.get(severity, "info")
@@ -41,6 +68,8 @@ def render_diagnosis_card(meta: dict) -> None:
     st.caption(f"Crop: **{meta.get('affected_crop', '—')}**")
 
     st.progress(min(max(meta.get("confidence", 0) / 100, 0.0), 1.0), text=f"Confidence: {meta.get('confidence', 0):.1f}%")
+
+    _render_verification_banner(meta)
 
     orig = _b64_to_bytes(meta.get("original_b64"))
     heatmap = _b64_to_bytes(meta.get("heatmap_b64"))
