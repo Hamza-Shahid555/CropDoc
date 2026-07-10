@@ -3,6 +3,7 @@
 the model decides when it needs grounded facts and asks for them."""
 
 import json
+import re
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -26,6 +27,19 @@ def lookup_disease(class_name: str) -> dict:
     return entry
 
 
+def _normalize_for_match(text: str) -> str:
+    text = re.sub(r"\(.*?\)", " ", text)  # strip parenthetical pathogen names, e.g. "(Exserohilum turcicum)"
+    text = re.sub(r"[^a-z0-9\s]", " ", text.lower())
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _token_jaccard(a: str, b: str) -> float:
+    a_tokens, b_tokens = set(a.split()), set(b.split())
+    if not a_tokens or not b_tokens:
+        return 0.0
+    return len(a_tokens & b_tokens) / len(a_tokens | b_tokens)
+
+
 def match_disease_name(free_text_name: str, crop_hint: str | None = None, threshold: float = 0.6) -> dict | None:
     """Fuzzy-matches a free-text diagnosis (e.g. from a vision LLM that isn't
     constrained to the CNN's 38 classes) to the closest knowledge-base entry, or
@@ -37,36 +51,48 @@ def match_disease_name(free_text_name: str, crop_hint: str | None = None, thresh
     against the WRONG crop's entry as a specific name matches its correct entry —
     plain string similarity alone isn't reliable enough to trust here. When the
     crop is known, entries for other crops are excluded entirely rather than
-    relying on the similarity score to sort it out; when the crop is unknown, we
-    stay conservative (higher threshold) since there's no way to rule out a
-    same-word, wrong-crop coincidence."""
+    relying on the similarity score to sort it out.
+
+    Uses the better of a character-sequence ratio and a word-set (order-independent)
+    score: an LLM saying "Northern Corn Leaf Blight (Exserohilum turcicum)" against
+    the KB's "Corn Northern Leaf Blight" is the same disease in different word order
+    plus an extra pathogen name — character-sequence matching alone scores that too
+    low to trust (verified: 0.55, below a safe threshold) even though it's a correct
+    match once reordering and the parenthetical are accounted for.
+
+    When the crop is unknown, we don't attempt a match at all — not even at a high
+    threshold. A short generic phrase like "leaf blight" is a near-exact substring
+    of some specific crop's full disease name (e.g. "Grape Leaf Blight") purely by
+    coincidence, which scores deceptively high regardless of the threshold chosen
+    (verified empirically), and there's no crop-gating safety net to catch it when
+    the crop itself is unknown."""
     if not free_text_name:
         return None
-    target = free_text_name.strip().lower()
     crop_target = (crop_hint or "").strip().lower()
     crop_known = bool(crop_target) and crop_target not in ("unknown", "n/a", "none")
+    if not crop_known:
+        return None
 
-    candidates_pool = _KB
-    if crop_known:
-        same_crop = [
-            e for e in _KB
-            if (e.get("affected_crop") or "").lower() in crop_target
-            or crop_target in (e.get("affected_crop") or "").lower()
-        ]
-        if same_crop:
-            candidates_pool = same_crop
-        else:
-            return None  # named a crop we don't have any KB entries for at all
-
-    effective_threshold = threshold if crop_known else max(threshold, 0.75)
+    target = _normalize_for_match(free_text_name)
+    same_crop = [
+        e for e in _KB
+        if (e.get("affected_crop") or "").lower() in crop_target
+        or crop_target in (e.get("affected_crop") or "").lower()
+    ]
+    if not same_crop:
+        return None  # named a crop we don't have any KB entries for at all
 
     best_entry, best_score = None, 0.0
-    for entry in candidates_pool:
+    for entry in same_crop:
         for candidate in (entry["disease_name"], entry["class_name"].replace("___", " ").replace("_", " ")):
-            score = SequenceMatcher(None, target, candidate.lower()).ratio()
+            candidate_norm = _normalize_for_match(candidate)
+            score = max(
+                SequenceMatcher(None, target, candidate_norm).ratio(),
+                _token_jaccard(target, candidate_norm),
+            )
             if score > best_score:
                 best_score, best_entry = score, entry
-    return best_entry if best_score >= effective_threshold else None
+    return best_entry if best_score >= threshold else None
 
 
 TOOL_SCHEMAS = [

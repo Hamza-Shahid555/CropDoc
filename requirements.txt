@@ -3,6 +3,7 @@
 
 streamlit>=1.37          # st.navigation / st.Page multipage routing
 openai>=1.30
+anthropic>=0.40           # optional: final diagnosis synthesizer, see agents/claude_agent.py
 python-dotenv>=1.0
 bcrypt>=4.1
 

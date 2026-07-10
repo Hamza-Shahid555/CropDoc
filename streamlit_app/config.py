@@ -20,6 +20,9 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 OPENAI_CHAT_MODEL = os.environ.get("OPENAI_CHAT_MODEL", "gpt-4o-mini")
 OPENAI_EMBEDDING_MODEL = os.environ.get("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
 
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
+
 APP_SECRET = os.environ.get("APP_SECRET", "cropdoc-dev-secret-change-me")
 
 DB_PATH = DATA_DIR / "cropdoc.db"
@@ -34,3 +37,7 @@ APP_TAGLINE = "AI-powered crop disease diagnosis and advisory"
 
 def openai_configured() -> bool:
     return bool(OPENAI_API_KEY) and not OPENAI_API_KEY.startswith("sk-...")
+
+
+def anthropic_configured() -> bool:
+    return bool(ANTHROPIC_API_KEY) and not ANTHROPIC_API_KEY.startswith("sk-ant-your")

@@ -54,7 +54,17 @@ def render_diagnosis_card(meta: dict) -> None:
         unsafe_allow_html=True,
     )
     st.caption(f"Crop: **{meta.get('affected_crop', '—')}**")
-    st.progress(min(max(meta.get("confidence", 0) / 100, 0.0), 1.0), text=f"AI confidence: {meta.get('confidence', 0):.1f}%")
+
+    source_label = {"claude": "Claude", "openai": "OpenAI", "cnn_only": "Specialist model (unverified)"}.get(
+        meta.get("diagnosis_source"), "AI"
+    )
+    st.progress(
+        min(max(meta.get("confidence", 0) / 100, 0.0), 1.0),
+        text=f"{source_label} confidence: {meta.get('confidence', 0):.1f}%",
+    )
+
+    if meta.get("agreement_note"):
+        st.info(f"🧭 {meta['agreement_note']}", icon="🧭")
 
     specialist_class = meta.get("specialist_model_class")
     if specialist_class:
@@ -63,6 +73,26 @@ def render_diagnosis_card(meta: dict) -> None:
             f"({meta.get('specialist_model_confidence', 0):.1f}% — its own certainty in that specific "
             "guess, not an accuracy score)"
         )
+
+    openai_take = meta.get("openai_take")
+    if openai_take:
+        with st.expander(f"👁️ OpenAI's independent take: {openai_take.get('disease_name', '—')} ({openai_take.get('confidence', 0):.0f}%)"):
+            st.caption(f"Crop it identified: **{openai_take.get('plant_species', '—')}**")
+            if openai_take.get("symptoms"):
+                st.markdown("**Symptoms it noted**")
+                st.write(openai_take["symptoms"])
+            oc1, oc2 = st.columns(2)
+            with oc1:
+                if openai_take.get("organic_treatment"):
+                    st.markdown("**Organic treatment (OpenAI)**")
+                    st.write(openai_take["organic_treatment"])
+            with oc2:
+                if openai_take.get("chemical_treatment"):
+                    st.markdown("**Chemical treatment (OpenAI)**")
+                    st.write(openai_take["chemical_treatment"])
+            if openai_take.get("fertilizer_recommendation"):
+                st.markdown("**Fertilizer recommendation (OpenAI)**")
+                st.write(openai_take["fertilizer_recommendation"])
 
     orig = _b64_to_bytes(meta.get("original_b64"))
     heatmap = _b64_to_bytes(meta.get("heatmap_b64"))
